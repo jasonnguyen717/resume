@@ -1,0 +1,155 @@
+$color: #212529;
+$bg-color: #fbfbfd;
+
+@import "mixins";
+
+body {
+  font-family: montserrat;
+  background-color: $bg-color;
+}
+
+a {
+  text-decoration: none;
+  color: $color;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "leftheader leftheader rightheader"
+    "leftmain leftmain rightmain"
+    "footer footer footer";
+  grid-template-columns: repeat(3, 1fr);
+  //grid-column-gap: 100px;
+  //grid-row-gap: 100px;
+  //grid-gap: 100px;
+  //grid-auto-rows: 100px;
+  //grid-auto-flow: column;
+}
+
+/***** header left *****/
+.header-left {
+  grid-area: leftheader;
+  @include sticky-header;
+
+  &-name {
+    @include gradient-text;
+    display: flex;
+    text-transform: uppercase;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  &-sub {
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+  }
+}
+/***** end header left *****/
+
+/***** header right *****/
+.header-right {
+  grid-area: rightheader;
+  @include sticky-header;
+  display: flex;
+  justify-content: center;
+
+  &-pix {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+/***** end header right *****/
+
+/***** main left *****/
+.main-containerL {
+  grid-area: leftmain;
+}
+
+.left-title {
+  margin-left: 20px;
+  text-transform: uppercase;
+}
+
+.left-p {
+  margin-left: 20px;
+}
+
+.sub-projects-p {
+  margin-left: 20px;
+  margin-top: -15px;
+}
+
+.projects-achievements {
+  margin-top: -10px;
+}
+/***** end main left *****/
+
+/***** main right *****/
+.main-containerR {
+  grid-area: rightmain;
+  margin: 20px;
+}
+
+.right-container {
+  background-color: #eeeeee;
+  border-radius: 2%;
+}
+
+.right-title {
+  text-transform: uppercase;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  &-contact {
+    padding-left: 10px;
+    flex: 2;
+    align-self: center;
+  }
+  &-icon {
+    flex: 1;
+    text-align: end;
+    margin-right: 20px;
+  }
+  .icon {
+    @include icon;
+  }
+}
+
+.list {
+  list-style: none;
+  margin-block-start: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 10px;
+}
+
+.skills {
+  padding-bottom: 10px;
+}
+/***** end main right *****/
+
+/***** media query *****/
+@media screen and (max-width: 576px) {
+  .header-left-name {
+    text-align: center;
+  }
+
+  .header-left-sub {
+    text-align: center;
+  }
+
+  .header-right-pix {
+    height: 115px;
+    width: 115px;
+  }
+}
